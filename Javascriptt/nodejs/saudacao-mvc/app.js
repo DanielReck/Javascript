@@ -1,5 +1,7 @@
 const express = require('express');
 const path = require('path');
+const app = express(); // Corrigido: agora app está definido
+const port = 3000; // Corrigido: definição da porta
 
 // Middleware para arquivos estáticos
 app.use(express.static('public'));
@@ -11,12 +13,14 @@ app.use(express.urlencoded({ extended: true }));
 const indexRoutes = require('./routes/index');
 app.use('/', indexRoutes);
 
-const indexRoutes = require('./routes/users');
-app.use('/users', indexRoutes);
+const usersRoutes = require('./routes/users');
+app.use('/users', usersRoutes);
 
-const indexRoutes = require('./routes/exports');
-app.use('/exports', indexRoutes);
+const produtosRoutes = require('./routes/produtos');
+app.use('/produtos', produtosRoutes);
 
+const clientesRoutes = require('./routes/clientes');
+app.use('/clientes', clientesRoutes);
 
 // Servidor
 app.listen(port, () => {

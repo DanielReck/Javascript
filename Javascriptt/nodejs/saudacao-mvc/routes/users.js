@@ -1,9 +1,8 @@
 var express = require('express');
 var router = express.Router();
-const siteController = require('../controllers/siteController');
 
-router.get('/', siteController.index);
-router.get('/formulario', siteController.formulario);
-router.post('/saudacao', siteController.saudacao);
+router.get('/', function(req, res, next) {
+  res.send('Respondendo a rota de produtos');
+});
 
 module.exports = router;

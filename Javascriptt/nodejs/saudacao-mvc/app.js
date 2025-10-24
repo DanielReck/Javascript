@@ -4,6 +4,7 @@ const app = express(); // Corrigido: agora app está definido
 const port = 3000; // Corrigido: definição da porta
 
 // Middleware para arquivos estáticos
+app.use(express.json());
 app.use(express.static('public'));
 
 // Middleware para ler dados de formulários
